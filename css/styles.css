@@ -1,0 +1,77 @@
+/* Seteamos margenes y padding en 0 para todo desde el inicio*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center; /* Alinea el texto en el centro */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 0;
+}
+
+section {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+/********************************************/
+/* Defino el estilo del Grid y sus elementos*/
+/*******************************************/
+.navbar-area {
+    grid-area: navbar-area;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.footer-area {
+    grid-area: footer-area;
+    position: fixed;
+    bottom: 0;
+}
+
+.content-area {
+    grid-area: content-area;
+    height: 95vh;
+}
+
+.grid-container {
+    background-color: aquamarine;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    'navbar-area'
+    'content-area'
+    'footer-area';
+}
