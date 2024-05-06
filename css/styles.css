@@ -8,6 +8,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+body, html {
+    height: 100%;
+}
+
 header {
     background-color: #333;
     color: #fff;
@@ -33,6 +37,15 @@ nav ul li a {
     text-decoration: none;
 }
 
+section {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+main {
+    padding: 20px;
+}
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -40,38 +53,35 @@ nav ul li a {
     padding: 50px 0;
 }
 
-section {
-    background-color: #f4f4f4;
-    padding: 50px 0;
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
+.navbar {
+    padding: 20px;
+}
 /********************************************/
 /* Defino el estilo del Grid y sus elementos*/
 /*******************************************/
-.navbar-area {
+/*.navbar-area {
     grid-area: navbar-area;
-    position: fixed;
-    width: 100%;
-    top: 0;
 }
-
+/*
 .footer-area {
     grid-area: footer-area;
-    position: fixed;
-    bottom: 0;
 }
 
 .content-area {
     grid-area: content-area;
-    height: 95vh;
-}
+}*/
 
 .grid-container {
+    height: 100%;
     background-color: aquamarine;
-    width: 100%;
     display: grid;
-    grid-template-areas: 
-    'navbar-area'
-    'content-area'
-    'footer-area';
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
 }
