@@ -8,6 +8,7 @@
 const ERROR_COLOR = "red";
 const VALID_COLOR = "green";
 const DEFAULT_EMPTY = "";
+const URL_LOGIN = "https://dummyjson.com/auth/login";
 
 function isEmailValid(email) {
     // Vamos a validar lo siguiente...    
@@ -113,6 +114,71 @@ export function ValidadorFormulario(event) {
         //Mostrar cartel de que hay datos a corregir...
     }
 
+}
 
+
+export function Login(event) {
+    event.preventDefault(); // a partir de esta linea el comportamiento del evento lo manejo YO - el Dev
+    let miFormulario = event.currentTarget;
+    let usernameHTMLElement = document.getElementById("username");
+    let passwordHTMLElement = document.getElementById("password");
+    let submitHTMLElement = document.getElementById("submit");
+    let messageHTMLElement = document.getElementById("message");
+
+    submitHTMLElement.disabled = true;
+
+    /// preparo un json para enviar al backend...
+    let data = {
+        username: usernameHTMLElement.value,
+        password: passwordHTMLElement.value
+    }
+
+    //DATA es un objeto en javascript
+
+    // Request necesita convertir ese objeto en JSON...
+    let request = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }
+
+    let finalMessage = "";
+
+    fetch( URL_LOGIN , request )
+        .then((respuesta) => respuesta.json() )
+        .then( (res) => {
+            // Este res es la promesa de convertir la respuesta en json
+            console.log(res);
+            /* Si la respuesta es correcta deberia tener algo como
+            {
+                "id": 15,"username": "kminchelle",
+                "email": "kminchelle@qq.com",
+                "firstName": "Jeanne",
+                "lastName": "Halvorson",
+                "gender": "female"
+            }
+
+            Y si fuera incorrecta  tendria
+
+            {
+                message: "elporque es incorrecto.."
+            }
+            */
+
+            if(res.hasOwnProperty("message")){
+                console.log("Algo malo salio...");
+                finalMessage = res.message;
+            } else {
+                finalMessage = "Welcome " + res.firstName;
+                miFormulario.style.display = 'none';
+            }
+
+        })
+        .catch( () => alert("salio mal"))
+        .finally( () => {
+            alert("Esta completo");
+            submitHTMLElement.disabled = false;
+            messageHTMLElement.innerHTML = finalMessage;
+        });
 
 }
