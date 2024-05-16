@@ -1,0 +1,32 @@
+{
+    "lastName": "Ernser",
+    "maidenName": "Feeney",
+    "age": 23,
+    "gender": "male",
+    "email": "ckensleyk@pen.io",
+    "phone": "+86 634 419 6839",
+    "username": "ckensleyk",
+    "password": "tq7kPXyf",
+    "birthDate": "1983-01-22",
+    "image": "https://robohash.org/Doyle.png?set=set4",
+    "bloodGroup": "A-",
+    "height": 173,
+    "weight": 69.9,
+    "eyeColor": "Brown",
+    "hair": {
+        "color": "Black",
+        "type": "Curly"
+    },
+    "domain": "free.fr",
+    "ip": "87.213.156.73",
+    "address": {
+        "address": "3034 Mica Street",
+        "city": "Fayetteville",
+        "coordinates": {
+            "lat": 36.0807929,
+            "lng": -94.2066449
+        },
+        "postalCode": "72704",
+        "state": "AR"
+    }
+}

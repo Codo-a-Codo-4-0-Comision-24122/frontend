@@ -171,6 +171,9 @@ export function Login(event) {
             } else {
                 finalMessage = "Welcome " + res.firstName;
                 miFormulario.style.display = 'none';
+                //si esta todo bien guardo info en el localstorage...
+                localStorage.setItem("name" , res.firstName);
+                localStorage.setItem("isLogged", "true");
             }
 
         })
@@ -181,4 +184,14 @@ export function Login(event) {
             messageHTMLElement.innerHTML = finalMessage;
         });
 
+}
+
+// Si esta guardada la info devuelve true y sino false
+export function checkLocalStorage( ) {
+    let isLogged = localStorage.getItem("isLogged"); // convertirlo booleano
+    let name = localStorage.getItem("name"); //No necesito convertirlo
+
+    let existeDataPrevia = (name !== null) && (isLogged !== null);
+
+    return existeDataPrevia;
 }
