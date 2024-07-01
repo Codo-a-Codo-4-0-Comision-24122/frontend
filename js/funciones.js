@@ -8,7 +8,7 @@
 const ERROR_COLOR = "red";
 const VALID_COLOR = "green";
 const DEFAULT_EMPTY = "";
-const URL_LOGIN = "https://dummyjson.com/auth/login";
+const URL_LOGIN = "http://localhost:3000/auth/login"; //"https://dummyjson.com/auth/login";
 
 function isEmailValid(email) {
     // Vamos a validar lo siguiente...    
@@ -174,6 +174,7 @@ export function Login(event) {
                 //si esta todo bien guardo info en el localstorage...
                 localStorage.setItem("name" , res.firstName);
                 localStorage.setItem("isLogged", "true");
+                // deberiamos guardar el token el localstorage.setITem
             }
 
         })
