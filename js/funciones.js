@@ -9,6 +9,7 @@ const ERROR_COLOR = "red";
 const VALID_COLOR = "green";
 const DEFAULT_EMPTY = "";
 const URL_LOGIN = "http://localhost:3000/auth/login"; //"https://dummyjson.com/auth/login";
+const URL_CONTACT = "http://localhost:3000/contact";
 
 function isEmailValid(email) {
     // Vamos a validar lo siguiente...    
@@ -42,7 +43,31 @@ function changeBorderColor(rgb, element) {
 function conexionBackendAPI() {
     return new Promise((resolve, reject) => {
 
-        setTimeout(() => {
+        /// preparo un json para enviar al backend...
+        let data = {
+            "email":"alejandro.medici@bue.edu.ar",
+            "type": "venta de producto",
+            "text": "Quiero saber sobre su producto, que precio tiene?"
+        }
+
+        //DATA es un objeto en javascript
+
+        // Request necesita convertir ese objeto en JSON...
+        let request = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        }
+
+
+        fetch( URL_CONTACT , request )
+        .then((respuesta) => respuesta.json() )
+        .then( (res) => {
+            // Este res es la promesa de convertir la respuesta en json
+            console.log(res);
+        });
+
+       /* setTimeout(() => {
 
             let fail = Math.random() > 0.5; // de prueba de forma aleatoria a veces es verdadero otras falso
 
@@ -54,7 +79,7 @@ function conexionBackendAPI() {
 
 
         }, 2000
-        )
+        )*/
 
     });
 }
